@@ -5,7 +5,9 @@ class Author(models.Model):
 
     class Meta:
         verbose_name = 'Author'
-        
+    def __str__(self):
+        return self.name
+
 class Book(models.Model):
     author = models.ForeignKey(Author, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=300)
@@ -13,4 +15,6 @@ class Book(models.Model):
 
     class Meta:
         verbose_name = 'Book'
+    def __str__(self):
+        return self.name
 
