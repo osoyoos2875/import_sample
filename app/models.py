@@ -1,5 +1,11 @@
 from django.db import models
 
+class Author(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        verbose_name = 'Author'
+        
 class Book(models.Model):
     author = models.ForeignKey(Author, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=300)
@@ -8,8 +14,3 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Book'
 
-class Author(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-
-    class Meta:
-        verbose_name = 'Author'
